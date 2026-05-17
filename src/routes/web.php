@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AttendanceDetailController;
 use App\Http\Controllers\AttendanceListController;
+use App\Http\Controllers\StampCorrectionRequestController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,11 @@ Route::get('/attendance/detail/{id}', [AttendanceDetailController::class, 'show'
 Route::post('/attendance/detail/{id}', [AttendanceDetailController::class, 'update'])
     ->middleware('auth')
     ->name('attendance.detail.update');
+
+// 一般ユーザーの申請一覧画面
+Route::get('/stamp_correction_request/list', [StampCorrectionRequestController::class, 'index'])
+    ->middleware('auth')
+    ->name('stamp_correction_request.list');
 
 Route::get('/admin/login', [AdminAuthController::class, 'create'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'store']);
