@@ -65,7 +65,7 @@
                         <td>{{ $day['work_time'] }}</td>
                         <td>
                             @if ($day['attendance_id'])
-                            <a href="#" class="attendance-list-table__detail-link">詳細</a>
+                            <a href="{{ route('attendance.detail', ['id' => $day['attendance_id']]) }}" class="attendance-list-table__detail-link">詳細</a>
                             @endif
                         </td>
                     </tr>

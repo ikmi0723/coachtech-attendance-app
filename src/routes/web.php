@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AttendanceDetailController;
 use App\Http\Controllers\AttendanceListController;
 
 /*
@@ -45,6 +46,16 @@ Route::post('/attendance/clock-out', [AttendanceController::class, 'clockOut'])
 Route::get('/attendance/list', [AttendanceListController::class, 'index'])
     ->middleware('auth')
     ->name('attendance.list');
+
+// 勤怠詳細画面
+Route::get('/attendance/detail/{id}', [AttendanceDetailController::class, 'show'])
+    ->middleware('auth')
+    ->name('attendance.detail');
+
+// 修正申請送信
+Route::post('/attendance/detail/{id}', [AttendanceDetailController::class, 'update'])
+    ->middleware('auth')
+    ->name('attendance.detail.update');
 
 Route::get('/admin/login', [AdminAuthController::class, 'create'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'store']);
