@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family:
+        "Hiragino Sans", "Yu Gothic", "YuGothic", "Helvetica Neue", Arial,
+        Meiryo, sans-serif;
+    color: #000;
+    background-color: #f1f1f5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+.attendance-list-header {
+    height: 80px;
+    background-color: #000;
+}
+
+.attendance-list-header__inner {
+    max-width: 1540px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.attendance-list-header__logo {
+    height: 28px;
+    display: block;
+}
+
+.attendance-list-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.attendance-list-header__link {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.attendance-list-header__logout-form {
+    margin: 0;
+}
+
+.attendance-list-header__logout {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.attendance-list-main {
+    padding: 56px 20px 80px;
+}
+
+.attendance-list-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.attendance-list-content__title {
+    margin: 0 0 40px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.attendance-list-month-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding: 18px 24px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.attendance-list-month-nav__link {
+    font-size: 18px;
+    font-weight: 700;
+    color: #737373;
+}
+
+.attendance-list-month-nav__current {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.attendance-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.attendance-list-table th,
+.attendance-list-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #e1e1e1;
+    text-align: center;
+    font-size: 16px;
+}
+
+.attendance-list-table th {
+    background-color: #fff;
+    font-weight: 700;
+}
+
+.attendance-list-table__detail-link {
+    color: #000;
+    font-weight: 700;
+}
