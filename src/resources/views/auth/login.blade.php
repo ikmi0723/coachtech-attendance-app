@@ -19,7 +19,7 @@
         <div class="auth-card">
             <h1 class="auth-card__title">ログイン</h1>
 
-            <form method="POST" action="{{ route('login') }}" class="auth-form">
+            <form method="POST" action="{{ route('login') }}" class="auth-form" novalidate>
                 @csrf
 
                 <div class="auth-form__group">

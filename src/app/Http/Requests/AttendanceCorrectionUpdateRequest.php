@@ -59,6 +59,30 @@ class AttendanceCorrectionUpdateRequest extends FormRequest
                 if ($clockOut && $breakEnd > $clockOut) {
                     $validator->errors()->add("breaks.$index.break_end_at", '休憩時間もしくは退勤時間が不適切な値です');
                 }
+
+                $validatedBreaks[] = [
+                    'index' => $index,
+                    'start' => $breakStart,
+                    'end' => $breakEnd,
+                ];
+            }
+
+            $count = count($validatedBreaks);
+
+            for ($i = 0; $i < $count; $i++) {
+                for ($j = $i + 1; $j < $count; $j++) {
+                    $first = $validatedBreaks[$i];
+                    $second = $validatedBreaks[$j];
+
+                    $isOverlapping = $first['start'] < $second['end'] && $second['start'] < $first['end'];
+
+                    if ($isOverlapping) {
+                        $validator->errors()->add(
+                            "breaks.{$second['index']}.break_start_at",
+                            '休憩時間が重複しています'
+                        );
+                    }
+                }
             }
         });
     }

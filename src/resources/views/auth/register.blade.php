@@ -19,7 +19,7 @@
         <div class="auth-card">
             <h1 class="auth-card__title">会員登録</h1>
 
-            <form method="POST" action="{{ route('register') }}" class="auth-form">
+            <form method="POST" action="{{ route('register') }}" class="auth-form" novalidate>
                 @csrf
 
                 <div class="auth-form__group">
@@ -67,6 +67,9 @@
                         name="password_confirmation"
                         id="password_confirmation"
                         class="auth-form__input">
+                    @error('password_confirmation')
+                    <p class="auth-form__error">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <button type="submit" class="auth-form__button">登録する</button>

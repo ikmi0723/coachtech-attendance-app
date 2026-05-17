@@ -16,14 +16,9 @@
             <img src="{{ asset('img/logo.png') }}" alt="COACHTECH" class="attendance-header__logo">
 
             <nav class="attendance-header__nav">
-                @if ($status === 'finished')
-                <a href="#" class="attendance-header__link">今月の出勤一覧</a>
-                <a href="#" class="attendance-header__link">申請一覧</a>
-                @else
-                <a href="#" class="attendance-header__link">勤怠</a>
-                <a href="#" class="attendance-header__link">勤怠一覧</a>
-                <a href="#" class="attendance-header__link">申請</a>
-                @endif
+                <a href="/attendance" class="attendance-header__link">勤怠</a>
+                <a href="/attendance/list" class="attendance-header__link">勤怠一覧</a>
+                <a href="/stamp_correction_request/list" class="attendance-header__link">申請</a>
 
                 <form method="POST" action="{{ route('logout') }}" class="attendance-header__logout-form">
                     @csrf
@@ -81,7 +76,7 @@
     </main>
     {{-- 現在日時のリアルタイム表示 --}}
     <script>
-        const baseNow = new Date(@json($nowIso));
+        const baseNow = new Date('{{ $nowIso }}');
         const loadedAt = new Date();
 
         function formatDate(date) {
