@@ -42,7 +42,7 @@
             </div>
             @endif
 
-            <form method="POST" action="{{ route('attendance.detail.update', ['id' => $attendance->id]) }}">
+            <form method="POST" action="{{ route('attendance.detail.update', ['id' => $attendance?->id ?? 0, 'date' => $detailDate]) }}">
                 @csrf
 
                 <div class="attendance-detail-card">
@@ -56,18 +56,20 @@
 
                         <div class="attendance-detail-time-pair">
                             <input
-                                type="time"
+                                type="text"
                                 name="clock_in"
                                 class="attendance-detail-time-pair__input"
                                 value="{{ old('clock_in', $clockIn) }}"
-                                @if($isFutureDate) disabled @endif>
+                                placeholder="09:00"
+                                @if($isFutureDate || $hasPendingRequest) disabled @endif>
                             <span class="attendance-detail-time-pair__separator">〜</span>
                             <input
-                                type="time"
+                                type="text"
                                 name="clock_out"
                                 class="attendance-detail-time-pair__input"
                                 value="{{ old('clock_out', $clockOut) }}"
-                                @if($isFutureDate) disabled @endif>
+                                placeholder="18:00"
+                                @if($isFutureDate || $hasPendingRequest) disabled @endif>
                         </div>
                     </div>
 
@@ -77,18 +79,20 @@
 
                         <div class="attendance-detail-time-pair">
                             <input
-                                type="time"
+                                type="text"
                                 name="breaks[{{ $index }}][break_start_at]"
                                 class="attendance-detail-time-pair__input"
                                 value="{{ old("breaks.$index.break_start_at", $breakInput['break_start_at']) }}"
-                                @if($isFutureDate) disabled @endif>
+                                placeholder="12:00"
+                                @if($isFutureDate || $hasPendingRequest) disabled @endif>
                             <span class="attendance-detail-time-pair__separator">〜</span>
                             <input
-                                type="time"
+                                type="text"
                                 name="breaks[{{ $index }}][break_end_at]"
                                 class="attendance-detail-time-pair__input"
                                 value="{{ old("breaks.$index.break_end_at", $breakInput['break_end_at']) }}"
-                                @if($isFutureDate) disabled @endif>
+                                placeholder="13:00"
+                                @if($isFutureDate || $hasPendingRequest) disabled @endif>
                         </div>
                     </div>
                     @endforeach
@@ -99,18 +103,21 @@
                         <textarea
                             name="note"
                             class="attendance-detail-textarea"
-                            @if($isFutureDate) disabled @endif>{{ old('note', $attendance->note) }}</textarea>
+                            @if($isFutureDate || $hasPendingRequest) disabled @endif>{{ old('note', $attendance->note ?? '') }}</textarea>
                     </div>
                 </div>
 
+                @if ($hasPendingRequest)
+                <p class="attendance-detail-pending-message">* 承認待ちのため修正はできません。</p>
+                @elseif (!$isFutureDate)
                 <div class="attendance-detail-action">
                     <button
                         type="submit"
-                        class="attendance-detail-action__button"
-                        @if($isFutureDate || $hasPendingRequest) disabled @endif>
+                        class="attendance-detail-action__button">
                         修正
                     </button>
                 </div>
+                @endif
             </form>
         </section>
     </main>
