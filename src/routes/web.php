@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAttendanceController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AttendanceDetailController;
@@ -66,6 +67,16 @@ Route::get('/stamp_correction_request/list', [StampCorrectionRequestController::
 Route::get('/admin/login', [AdminAuthController::class, 'create'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'store']);
 
-Route::get('/admin/attendance/list', function () {
-    return 'admin attendance list page';
-})->middleware('auth');
+Route::get('/admin/attendance/list', [AdminAttendanceController::class, 'index'])
+    ->middleware('auth')
+    ->name('admin.attendance.list');
+
+// 管理者の勤怠詳細画面表示
+Route::get('/admin/attendance/{id}', [AdminAttendanceController::class, 'show'])
+    ->middleware('auth')
+    ->name('admin.attendance.detail');
+
+// 管理者の勤怠更新
+Route::post('/admin/attendance/{id}', [AdminAttendanceController::class, 'update'])
+    ->middleware('auth')
+    ->name('admin.attendance.update');

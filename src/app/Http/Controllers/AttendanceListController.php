@@ -77,7 +77,8 @@ class AttendanceListController extends Controller
                 'clock_out' => $clockOut,
                 'break_time' => $breakTimeFormatted,
                 'work_time' => $workTimeFormatted,
-                'attendance_id' => $attendance?->id,
+                'attendance_id' => $attendance?->id ?? 0,
+                'date_string' => $date->toDateString(),
             ];
         }
 

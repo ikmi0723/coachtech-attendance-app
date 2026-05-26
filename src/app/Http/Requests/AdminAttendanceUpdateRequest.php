@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AttendanceCorrectionUpdateRequest extends FormRequest
+class AdminAttendanceUpdateRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -107,6 +107,7 @@ class AttendanceCorrectionUpdateRequest extends FormRequest
             'breaks.*.break_end_at.date_format' => '休憩時間を正しい形式で入力してください',
         ];
     }
+
     private function isValidTime(?string $time): bool
     {
         if (!$time) {

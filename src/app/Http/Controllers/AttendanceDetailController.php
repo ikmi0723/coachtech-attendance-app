@@ -15,6 +15,34 @@ class AttendanceDetailController extends Controller
 {
     public function show(Request $request, int $id): View
     {
+        if ($id === 0) {
+            $targetDate = $request->query('date')
+                ? Carbon::parse($request->query('date'))
+                : Carbon::today();
+
+            $attendance = null;
+            $workDate = $targetDate;
+            $isFutureDate = $workDate->isFuture();
+            $breakInputs = [
+                [
+                    'break_start_at' => '',
+                    'break_end_at' => '',
+                ],
+            ];
+            $hasPendingRequest = false;
+
+            return view('attendance.detail', [
+                'attendance' => null,
+                'displayDate' => $workDate->locale('ja')->translatedFormat('Y年n月j日'),
+                'clockIn' => '',
+                'clockOut' => '',
+                'breakInputs' => $breakInputs,
+                'isFutureDate' => $isFutureDate,
+                'hasPendingRequest' => $hasPendingRequest,
+                'detailDate' => $workDate->toDateString(),
+            ]);
+        }
+
         $attendance = Attendance::with('breakTimes')
             ->where('id', $id)
             ->where('user_id', $request->user()->id)
@@ -58,12 +86,19 @@ class AttendanceDetailController extends Controller
             'breakInputs' => $breakInputs,
             'isFutureDate' => $isFutureDate,
             'hasPendingRequest' => $hasPendingRequest,
+            'detailDate' => $workDate->toDateString(),
         ]);
     }
 
     // 修正申請保存
     public function update(AttendanceCorrectionUpdateRequest $request, int $id): RedirectResponse
     {
+        if ($id === 0) {
+            return back()->withErrors([
+                'request' => '勤怠データが存在しないため修正申請はできません',
+            ])->withInput();
+        }
+
         $attendance = Attendance::where('id', $id)
             ->where('user_id', $request->user()->id)
             ->firstOrFail();

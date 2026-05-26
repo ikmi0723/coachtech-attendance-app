@@ -22,12 +22,12 @@ textarea {
     font-family: inherit;
 }
 
-.attendance-detail-header {
+.admin-attendance-detail-header {
     height: 80px;
     background-color: #000;
 }
 
-.attendance-detail-header__inner {
+.admin-attendance-detail-header__inner {
     max-width: 1540px;
     height: 100%;
     margin: 0 auto;
@@ -37,29 +37,29 @@ textarea {
     justify-content: space-between;
 }
 
-.attendance-detail-header__logo {
+.admin-attendance-detail-header__logo {
     height: 28px;
     display: block;
 }
 
-.attendance-detail-header__nav {
+.admin-attendance-detail-header__nav {
     display: flex;
     align-items: center;
     gap: 48px;
 }
 
-.attendance-detail-header__link {
+.admin-attendance-detail-header__link {
     color: #fff;
     font-size: 18px;
     font-weight: 700;
     line-height: 1;
 }
 
-.attendance-detail-header__logout-form {
+.admin-attendance-detail-header__logout-form {
     margin: 0;
 }
 
-.attendance-detail-header__logout {
+.admin-attendance-detail-header__logout {
     padding: 0;
     border: none;
     background: transparent;
@@ -69,23 +69,23 @@ textarea {
     cursor: pointer;
 }
 
-.attendance-detail-main {
+.admin-attendance-detail-main {
     padding: 56px 20px 80px;
 }
 
-.attendance-detail-content {
+.admin-attendance-detail-content {
     max-width: 980px;
     margin: 0 auto;
 }
 
-.attendance-detail-content__title {
+.admin-attendance-detail-content__title {
     margin: 0 0 40px;
     font-size: 30px;
     font-weight: 700;
     text-align: center;
 }
 
-.attendance-detail-alert {
+.admin-attendance-detail-alert {
     margin: 0 0 24px;
     padding: 14px 18px;
     border-radius: 8px;
@@ -93,57 +93,57 @@ textarea {
     line-height: 1.6;
 }
 
-.attendance-detail-alert--success {
+.admin-attendance-detail-alert--success {
     background-color: #e9f8ed;
     color: #1e7a35;
 }
 
-.attendance-detail-alert--error {
+.admin-attendance-detail-alert--error {
     background-color: #fdeeee;
     color: #c62828;
 }
 
-.attendance-detail-alert p {
+.admin-attendance-detail-alert p {
     margin: 0;
 }
 
-.attendance-detail-card {
+.admin-attendance-detail-card {
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
 }
 
-.attendance-detail-row {
+.admin-attendance-detail-row {
     display: flex;
     align-items: center;
     padding: 28px 40px;
     border-bottom: 1px solid #e3e3e3;
 }
 
-.attendance-detail-row--textarea {
+.admin-attendance-detail-row--textarea {
     align-items: flex-start;
 }
 
-.attendance-detail-row__label {
+.admin-attendance-detail-row__label {
     width: 180px;
     margin: 0;
     font-size: 18px;
     font-weight: 700;
 }
 
-.attendance-detail-row__value {
+.admin-attendance-detail-row__value {
     margin: 0;
     font-size: 18px;
     font-weight: 700;
 }
 
-.attendance-detail-time-pair {
+.admin-attendance-detail-time-pair {
     display: flex;
     align-items: center;
     gap: 18px;
 }
 
-.attendance-detail-time-pair__input {
+.admin-attendance-detail-time-pair__input {
     width: 140px;
     height: 44px;
     padding: 0 12px;
@@ -153,12 +153,12 @@ textarea {
     background-color: #fff;
 }
 
-.attendance-detail-time-pair__separator {
+.admin-attendance-detail-time-pair__separator {
     font-size: 20px;
     font-weight: 700;
 }
 
-.attendance-detail-textarea {
+.admin-attendance-detail-textarea {
     width: 100%;
     max-width: 600px;
     min-height: 96px;
@@ -169,13 +169,13 @@ textarea {
     resize: vertical;
 }
 
-.attendance-detail-action {
+.admin-attendance-detail-action {
     margin-top: 48px;
     display: flex;
     justify-content: flex-end;
 }
 
-.attendance-detail-action__button {
+.admin-attendance-detail-action__button {
     width: 160px;
     height: 50px;
     border: none;
@@ -187,17 +187,9 @@ textarea {
     cursor: pointer;
 }
 
-.attendance-detail-pending-message {
-    margin: 24px 8px 0 0;
-    color: #ff6b6b;
-    font-size: 18px;
-    font-weight: 700;
-    text-align: right;
-}
-
-.attendance-detail-action__button:disabled,
-.attendance-detail-time-pair__input:disabled,
-.attendance-detail-textarea:disabled {
+.admin-attendance-detail-action__button:disabled,
+.admin-attendance-detail-time-pair__input:disabled,
+.admin-attendance-detail-textarea:disabled {
     cursor: not-allowed;
     opacity: 0.65;
 }
