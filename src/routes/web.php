@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminAttendanceController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminStaffAttendanceController;
 use App\Http\Controllers\AdminStaffController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AttendanceDetailController;
@@ -91,3 +92,8 @@ Route::post('/admin/attendance/{id}', [AdminAttendanceController::class, 'update
 Route::get('/admin/staff/list', [AdminStaffController::class, 'index'])
     ->middleware('auth')
     ->name('admin.staff.list');
+
+// 管理者のスタッフ別月次勤怠一覧
+Route::get('/admin/attendance/staff/{id}', [AdminStaffAttendanceController::class, 'index'])
+    ->middleware('auth')
+    ->name('admin.staff.attendance');
