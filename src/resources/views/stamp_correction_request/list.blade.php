@@ -65,7 +65,7 @@
                         <td>{{ $requestItem['request_date'] }}</td>
                         <td>
                             <a
-                                href="{{ route('attendance.detail', ['id' => $requestItem['attendance_id']]) }}"
+                                href="{{ route('stamp_correction_request.detail', ['id' => $requestItem['id']]) }}"
                                 class="stamp-request-table__detail-link">
                                 詳細
                             </a>
