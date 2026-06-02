@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family:
+        "Hiragino Sans", "Yu Gothic", "YuGothic", "Helvetica Neue", Arial,
+        Meiryo, sans-serif;
+    color: #000;
+    background-color: #f1f1f5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+.admin-staff-list-header {
+    height: 80px;
+    background-color: #000;
+}
+
+.admin-staff-list-header__inner {
+    max-width: 1540px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-staff-list-header__logo {
+    height: 28px;
+    display: block;
+}
+
+.admin-staff-list-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.admin-staff-list-header__link {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.admin-staff-list-header__logout-form {
+    margin: 0;
+}
+
+.admin-staff-list-header__logout {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.admin-staff-list-main {
+    padding: 104px 20px 80px;
+}
+
+.admin-staff-list-content {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.admin-staff-list-content__title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 0 76px;
+}
+
+.admin-staff-list-content__title-bar {
+    width: 8px;
+    height: 38px;
+    background-color: #000;
+    border-radius: 2px;
+}
+
+.admin-staff-list-content__title-text {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.admin-staff-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-staff-list-table th,
+.admin-staff-list-table td {
+    padding: 18px 24px;
+    border-bottom: 1px solid #e1e1e1;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.admin-staff-list-table th {
+    color: #737373;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.admin-staff-list-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-staff-list-table td {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.admin-staff-list-table__detail-link {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+}
