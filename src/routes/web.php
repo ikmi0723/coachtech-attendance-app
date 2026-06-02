@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminAttendanceController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminStaffController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AttendanceDetailController;
 use App\Http\Controllers\AttendanceListController;
@@ -85,3 +86,8 @@ Route::get('/admin/attendance/{id}', [AdminAttendanceController::class, 'show'])
 Route::post('/admin/attendance/{id}', [AdminAttendanceController::class, 'update'])
     ->middleware('auth')
     ->name('admin.attendance.update');
+
+// 管理者のスタッフ一覧画面
+Route::get('/admin/staff/list', [AdminStaffController::class, 'index'])
+    ->middleware('auth')
+    ->name('admin.staff.list');
