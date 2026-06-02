@@ -94,9 +94,47 @@ class AttendanceDetailController extends Controller
     public function update(AttendanceCorrectionUpdateRequest $request, int $id): RedirectResponse
     {
         if ($id === 0) {
-            return back()->withErrors([
-                'request' => '勤怠データが存在しないため修正申請はできません',
-            ])->withInput();
+            $workDate = Carbon::parse($request->query('date'));
+
+            $hasPendingRequest = AttendanceCorrectionRequest::where('user_id', $request->user()->id)
+                ->whereDate('requested_work_date', $workDate->toDateString())
+                ->where('status', 'pending')
+                ->exists();
+
+            if ($hasPendingRequest) {
+                return back()->withErrors([
+                    'request' => '承認待ちのため修正はできません',
+                ])->withInput();
+            }
+
+            $correctionRequest = AttendanceCorrectionRequest::create([
+                'attendance_id' => null,
+                'user_id' => $request->user()->id,
+                'requested_work_date' => $workDate->toDateString(),
+                'status' => 'pending',
+                'requested_clock_in_at' => Carbon::parse($workDate->toDateString() . ' ' . $request->input('clock_in')),
+                'requested_clock_out_at' => Carbon::parse($workDate->toDateString() . ' ' . $request->input('clock_out')),
+                'requested_note' => $request->input('note'),
+            ]);
+
+            foreach ($request->input('breaks', []) as $break) {
+                $breakStart = $break['break_start_at'] ?? null;
+                $breakEnd = $break['break_end_at'] ?? null;
+
+                if (!$breakStart && !$breakEnd) {
+                    continue;
+                }
+
+                AttendanceCorrectionBreakTime::create([
+                    'attendance_correction_request_id' => $correctionRequest->id,
+                    'break_start_at' => Carbon::parse($workDate->toDateString() . ' ' . $breakStart),
+                    'break_end_at' => Carbon::parse($workDate->toDateString() . ' ' . $breakEnd),
+                ]);
+            }
+
+            return redirect()
+                ->route('stamp_correction_request.list')
+                ->with('message', '修正申請を送信しました');
         }
 
         $attendance = Attendance::where('id', $id)

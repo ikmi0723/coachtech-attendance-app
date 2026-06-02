@@ -64,6 +64,11 @@ Route::get('/stamp_correction_request/list', [StampCorrectionRequestController::
     ->middleware('auth')
     ->name('stamp_correction_request.list');
 
+// 一般ユーザーの申請詳細画面
+Route::get('/stamp_correction_request/detail/{id}', [StampCorrectionRequestController::class, 'show'])
+    ->middleware('auth')
+    ->name('stamp_correction_request.detail');
+
 Route::get('/admin/login', [AdminAuthController::class, 'create'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'store']);
 

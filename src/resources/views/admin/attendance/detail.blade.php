@@ -108,7 +108,7 @@
                         <textarea
                             name="note"
                             class="admin-attendance-detail-textarea"
-                            @if($isFutureDate) disabled @endif>{{ old('note', $attendance->note) }}</textarea>
+                            @if($isFutureDate) disabled @endif>{{ old('note', $attendance->note ?? '') }}</textarea>
                     </div>
                 </div>
 

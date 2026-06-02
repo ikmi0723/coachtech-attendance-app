@@ -15,6 +15,7 @@ class AttendanceCorrectionRequest extends Model
     protected $fillable = [
         'attendance_id',
         'user_id',
+        'requested_work_date',
         'status',
         'requested_clock_in_at',
         'requested_clock_out_at',
