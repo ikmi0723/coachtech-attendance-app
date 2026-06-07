@@ -26,51 +26,45 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::get('/attendance', [AttendanceController::class, 'index'])->middleware('auth');
+Route::middleware(['auth', 'user.role'])->group(function () {
+    Route::get('/attendance', [AttendanceController::class, 'index'])
+        ->name('attendance.index');
 
-Route::post('/attendance/clock-in', [AttendanceController::class, 'clockIn'])
-    ->middleware('auth')
-    ->name('attendance.clock_in');
+    Route::post('/attendance/clock-in', [AttendanceController::class, 'clockIn'])
+        ->name('attendance.clock_in');
 
-// 休憩入
-Route::post('/attendance/break-start', [AttendanceController::class, 'breakStart'])
-    ->middleware('auth')
-    ->name('attendance.break_start');
+    // 休憩入
+    Route::post('/attendance/break-start', [AttendanceController::class, 'breakStart'])
+        ->name('attendance.break_start');
 
-// 休憩戻
-Route::post('/attendance/break-end', [AttendanceController::class, 'breakEnd'])
-    ->middleware('auth')
-    ->name('attendance.break_end');
+    // 休憩戻
+    Route::post('/attendance/break-end', [AttendanceController::class, 'breakEnd'])
+        ->name('attendance.break_end');
 
-// 退勤
-Route::post('/attendance/clock-out', [AttendanceController::class, 'clockOut'])
-    ->middleware('auth')
-    ->name('attendance.clock_out');
+    // 退勤
+    Route::post('/attendance/clock-out', [AttendanceController::class, 'clockOut'])
+        ->name('attendance.clock_out');
 
-// 勤怠一覧画面
-Route::get('/attendance/list', [AttendanceListController::class, 'index'])
-    ->middleware('auth')
-    ->name('attendance.list');
+    // 勤怠一覧画面
+    Route::get('/attendance/list', [AttendanceListController::class, 'index'])
+        ->name('attendance.list');
 
-// 勤怠詳細画面
-Route::get('/attendance/detail/{id}', [AttendanceDetailController::class, 'show'])
-    ->middleware('auth')
-    ->name('attendance.detail');
+    // 勤怠詳細画面
+    Route::get('/attendance/detail/{id}', [AttendanceDetailController::class, 'show'])
+        ->name('attendance.detail');
 
-// 修正申請送信
-Route::post('/attendance/detail/{id}', [AttendanceDetailController::class, 'update'])
-    ->middleware('auth')
-    ->name('attendance.detail.update');
+    // 修正申請送信
+    Route::post('/attendance/detail/{id}', [AttendanceDetailController::class, 'update'])
+        ->name('attendance.detail.update');
 
-// 一般ユーザーの申請一覧画面
-Route::get('/stamp_correction_request/list', [StampCorrectionRequestController::class, 'index'])
-    ->middleware('auth')
-    ->name('stamp_correction_request.list');
+    // 一般ユーザーの申請一覧画面
+    Route::get('/stamp_correction_request/list', [StampCorrectionRequestController::class, 'index'])
+        ->name('stamp_correction_request.list');
 
-// 一般ユーザーの申請詳細画面
-Route::get('/stamp_correction_request/detail/{id}', [StampCorrectionRequestController::class, 'show'])
-    ->middleware('auth')
-    ->name('stamp_correction_request.detail');
+    // 一般ユーザーの申請詳細画面
+    Route::get('/stamp_correction_request/detail/{id}', [StampCorrectionRequestController::class, 'show'])
+        ->name('stamp_correction_request.detail');
+});
 
 Route::get('/admin/login', [AdminAuthController::class, 'create'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'store']);
@@ -103,3 +97,13 @@ Route::get('/admin/attendance/staff/{id}', [AdminStaffAttendanceController::clas
 Route::get('/admin/stamp_correction_request/list', [AdminStampCorrectionRequestController::class, 'index'])
     ->middleware('auth')
     ->name('admin.stamp_correction_request.list');
+
+// 管理者の申請詳細画面
+Route::get('/admin/stamp_correction_request/detail/{id}', [AdminStampCorrectionRequestController::class, 'show'])
+    ->middleware('auth')
+    ->name('admin.stamp_correction_request.detail');
+
+// 管理者の申請承認処理
+Route::post('/admin/stamp_correction_request/approve/{id}', [AdminStampCorrectionRequestController::class, 'approve'])
+    ->middleware('auth')
+    ->name('admin.stamp_correction_request.approve');

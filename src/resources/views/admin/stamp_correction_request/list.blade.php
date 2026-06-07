@@ -67,7 +67,11 @@
                         <td>{{ $requestItem['note'] }}</td>
                         <td>{{ $requestItem['request_date'] }}</td>
                         <td>
-                            <a href="#" class="admin-request-list-table__detail-link">詳細</a>
+                            <a
+                                href="{{ route('admin.stamp_correction_request.detail', ['id' => $requestItem['id']]) }}"
+                                class="admin-request-list-table__detail-link">
+                                詳細
+                            </a>
                         </td>
                     </tr>
                     @empty
