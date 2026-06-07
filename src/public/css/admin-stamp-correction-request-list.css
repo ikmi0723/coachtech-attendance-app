@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family:
+        "Hiragino Sans", "Yu Gothic", "YuGothic", "Helvetica Neue", Arial,
+        Meiryo, sans-serif;
+    color: #000;
+    background-color: #f1f1f5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+.admin-request-list-header {
+    height: 80px;
+    background-color: #000;
+}
+
+.admin-request-list-header__inner {
+    max-width: 1540px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-request-list-header__logo {
+    height: 28px;
+    display: block;
+}
+
+.admin-request-list-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.admin-request-list-header__link {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.admin-request-list-header__logout-form {
+    margin: 0;
+}
+
+.admin-request-list-header__logout {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.admin-request-list-main {
+    padding: 80px 20px 80px;
+}
+
+.admin-request-list-content {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.admin-request-list-content__title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 0 44px;
+}
+
+.admin-request-list-content__title-bar {
+    width: 8px;
+    height: 38px;
+    background-color: #000;
+    border-radius: 2px;
+}
+
+.admin-request-list-content__title-text {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.admin-request-list-tabs {
+    display: flex;
+    gap: 120px;
+    margin-bottom: 46px;
+    padding: 0 0 18px;
+    border-bottom: 1px solid #000;
+}
+
+.admin-request-list-tabs__link {
+    position: relative;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.admin-request-list-tabs__link--active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -19px;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.admin-request-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-request-list-table th,
+.admin-request-list-table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid #e1e1e1;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.admin-request-list-table th {
+    color: #737373;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.admin-request-list-table td {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.admin-request-list-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-request-list-table__detail-link {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+}

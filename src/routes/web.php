@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminAttendanceController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminStaffAttendanceController;
 use App\Http\Controllers\AdminStaffController;
+use App\Http\Controllers\AdminStampCorrectionRequestController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AttendanceDetailController;
 use App\Http\Controllers\AttendanceListController;
@@ -97,3 +98,8 @@ Route::get('/admin/staff/list', [AdminStaffController::class, 'index'])
 Route::get('/admin/attendance/staff/{id}', [AdminStaffAttendanceController::class, 'index'])
     ->middleware('auth')
     ->name('admin.staff.attendance');
+
+// 管理者の修正申請一覧画面
+Route::get('/admin/stamp_correction_request/list', [AdminStampCorrectionRequestController::class, 'index'])
+    ->middleware('auth')
+    ->name('admin.stamp_correction_request.list');

@@ -16,7 +16,7 @@
             <nav class="admin-staff-list-header__nav">
                 <a href="/admin/attendance/list" class="admin-staff-list-header__link">勤怠一覧</a>
                 <a href="/admin/staff/list" class="admin-staff-list-header__link">スタッフ一覧</a>
-                <a href="#" class="admin-staff-list-header__link">申請一覧</a>
+                <a href="/admin/stamp_correction_request/list" class="admin-staff-list-header__link">申請一覧</a>
 
                 <form method="POST" action="{{ route('logout') }}" class="admin-staff-list-header__logout-form">
                     @csrf
