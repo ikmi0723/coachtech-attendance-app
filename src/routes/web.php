@@ -26,7 +26,7 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::middleware(['auth', 'user.role'])->group(function () {
+Route::middleware(['auth', 'user.role', 'verified'])->group(function () {
     Route::get('/attendance', [AttendanceController::class, 'index'])
         ->name('attendance.index');
 
