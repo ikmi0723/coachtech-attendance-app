@@ -172,6 +172,9 @@ button {
 }
 
 .admin-staff-attendance-export__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 130px;
     height: 44px;
     border: none;
@@ -180,5 +183,7 @@ button {
     color: #fff;
     font-size: 18px;
     font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
     cursor: pointer;
 }
