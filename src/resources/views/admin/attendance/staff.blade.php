@@ -84,7 +84,11 @@
             </table>
 
             <div class="admin-staff-attendance-export">
-                <button type="button" class="admin-staff-attendance-export__button">CSV出力</button>
+                <a
+                    href="{{ route('admin.staff.attendance.csv', ['id' => $staff->id, 'month' => $currentMonth->format('Y-m')]) }}"
+                    class="admin-staff-attendance-export__button">
+                    CSV出力
+                </a>
             </div>
         </section>
     </main>

@@ -93,6 +93,11 @@ Route::get('/admin/attendance/staff/{id}', [AdminStaffAttendanceController::clas
     ->middleware('auth')
     ->name('admin.staff.attendance');
 
+// スタッフ別月次勤怠一覧のCSV出力
+Route::get('/admin/attendance/staff/{id}/csv', [AdminStaffAttendanceController::class, 'exportCsv'])
+    ->middleware('auth')
+    ->name('admin.staff.attendance.csv');
+
 // 管理者の修正申請一覧画面
 Route::get('/admin/stamp_correction_request/list', [AdminStampCorrectionRequestController::class, 'index'])
     ->middleware('auth')
