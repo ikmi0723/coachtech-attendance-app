@@ -54,6 +54,13 @@ a {
     line-height: 1.4;
 }
 
+.auth-card__text {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
 .auth-form__group {
     margin-bottom: 32px;
 }
@@ -119,39 +126,47 @@ a {
     line-height: 1.5;
 }
 
-@media screen and (max-width: 768px) {
-    .auth-header__inner {
-        padding: 0 20px;
-    }
+/* メール認証画面用 */
+.auth-card__message {
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+}
 
-    .auth-main {
-        padding: 48px 16px 64px;
-    }
+.auth-card__message--success {
+    color: #16a34a;
+}
 
-    .auth-card__title {
-        margin-bottom: 36px;
-        font-size: 28px;
-    }
+.auth-card__form {
+    margin-top: 24px;
+    text-align: center;
+}
 
-    .auth-form__group {
-        margin-bottom: 24px;
-    }
+.auth-card__form--logout {
+    margin-top: 16px;
+}
 
-    .auth-form__label {
-        font-size: 20px;
-    }
+.auth-card__button {
+    min-width: 220px;
+    height: 44px;
+    padding: 0 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
 
-    .auth-form__input {
-        height: 52px;
-        font-size: 16px;
-    }
-
-    .auth-form__button {
-        height: 52px;
-        font-size: 20px;
-    }
-
-    .auth-card__link {
-        font-size: 18px;
-    }
+.auth-card__link-button {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
 }
