@@ -72,11 +72,13 @@
                         <td>{{ $day['break_time'] }}</td>
                         <td>{{ $day['work_time'] }}</td>
                         <td>
+                            @if ($day['date']->lte(\Carbon\Carbon::today()))
                             <a
                                 href="{{ route('admin.attendance.detail', ['id' => $day['attendance_id'], 'user_id' => $staff->id, 'date' => $day['date_string']]) }}"
                                 class="admin-staff-attendance-table__detail-link">
                                 詳細
                             </a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
