@@ -1,0 +1,50 @@
+.shared-header {
+    height: 80px;
+    background-color: #000;
+}
+
+.shared-header__inner {
+    max-width: 1540px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.shared-header__logo {
+    height: 28px;
+    display: block;
+}
+
+.shared-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.shared-header__link {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.shared-header__link--active {
+    opacity: 0.8;
+}
+
+.shared-header__logout-form {
+    margin: 0;
+}
+
+.shared-header__logout {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}

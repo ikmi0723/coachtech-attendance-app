@@ -9,37 +9,29 @@
 </head>
 
 <body>
-    <main class="auth-main">
-        <section class="auth-card">
-            <h1 class="auth-card__title">メール認証</h1>
+    <header class="auth-header">
+        <div class="auth-header__inner">
+            <img src="{{ asset('img/logo.png') }}" alt="COACHTECH" class="auth-header__logo">
+        </div>
+    </header>
+    <main class="verify-main">
+        <section class="verify-card">
+            <p class="verify-card__text">
+                登録していただいたメールアドレスに認証メールを送付しました。<br>
+                メール認証を完了してください。
+            </p>
+
+            <a href="http://localhost:8025" target="_blank" rel="noopener noreferrer" class="verify-card__mailhog-button">
+                認証はこちらから
+            </a>
 
             @if (session('status') === 'verification-link-sent')
-            <p class="auth-card__message auth-card__message--success">
-                認証メールを再送しました。
-            </p>
+            <p class="verify-card__status">認証メールを再送しました。</p>
             @endif
 
-            <p class="auth-card__text">
-                登録していただいたメールアドレスに認証メールを送信しました。<br>
-                メール内の認証リンクをクリックして、メール認証を完了してください。
-            </p>
-
-            <p class="auth-card__text">
-                認証後、サービスをご利用いただけます。
-            </p>
-
-            <form method="POST" action="{{ url('/email/verification-notification') }}" class="auth-card__form">
+            <form method="POST" action="{{ url('/email/verification-notification') }}" class="verify-card__resend-form">
                 @csrf
-                <button type="submit" class="auth-card__button">
-                    認証メールを再送する
-                </button>
-            </form>
-
-            <form method="POST" action="{{ route('logout') }}" class="auth-card__form auth-card__form--logout">
-                @csrf
-                <button type="submit" class="auth-card__link-button">
-                    ログアウト
-                </button>
+                <button type="submit" class="verify-card__resend-button">認証メールを再送する</button>
             </form>
         </section>
     </main>

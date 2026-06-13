@@ -6,25 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>申請一覧</title>
     <link rel="stylesheet" href="{{ asset('css/stamp-correction-request-list.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/common-header.css') }}">
 </head>
 
 <body>
-    <header class="stamp-request-header">
-        <div class="stamp-request-header__inner">
-            <img src="{{ asset('img/logo.png') }}" alt="COACHTECH" class="stamp-request-header__logo">
-
-            <nav class="stamp-request-header__nav">
-                <a href="/attendance" class="stamp-request-header__link">勤怠</a>
-                <a href="/attendance/list" class="stamp-request-header__link">勤怠一覧</a>
-                <a href="/stamp_correction_request/list" class="stamp-request-header__link">申請</a>
-
-                <form method="POST" action="{{ route('logout') }}" class="stamp-request-header__logout-form">
-                    @csrf
-                    <button type="submit" class="stamp-request-header__logout">ログアウト</button>
-                </form>
-            </nav>
-        </div>
-    </header>
+    @include('components.user-header')
 
     <main class="stamp-request-main">
         <section class="stamp-request-content">

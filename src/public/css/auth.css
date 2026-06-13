@@ -170,3 +170,64 @@ a {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.verify-main {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 220px 20px 80px;
+    background-color: #f1f1f5;
+}
+
+.verify-card {
+    width: 100%;
+    max-width: 760px;
+    text-align: center;
+}
+
+.verify-card__text {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #000;
+}
+
+.verify-card__mailhog-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height: 72px;
+    margin-top: 72px;
+    border: 1px solid #000;
+    border-radius: 12px;
+    background-color: #d9d9d9;
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.verify-card__status {
+    margin: 32px 0 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #16a34a;
+    line-height: 1.6;
+}
+
+.verify-card__resend-form {
+    margin-top: 48px;
+}
+
+.verify-card__resend-button {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #0073ff;
+    font-size: 24px;
+    font-weight: 400;
+    cursor: pointer;
+}

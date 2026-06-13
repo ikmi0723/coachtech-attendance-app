@@ -6,25 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スタッフ別勤怠一覧</title>
     <link rel="stylesheet" href="{{ asset('css/admin-staff-attendance.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/common-header.css') }}">
 </head>
 
 <body>
-    <header class="admin-staff-attendance-header">
-        <div class="admin-staff-attendance-header__inner">
-            <img src="{{ asset('img/logo.png') }}" alt="COACHTECH" class="admin-staff-attendance-header__logo">
-
-            <nav class="admin-staff-attendance-header__nav">
-                <a href="/admin/attendance/list" class="admin-staff-attendance-header__link">勤怠一覧</a>
-                <a href="/admin/staff/list" class="admin-staff-attendance-header__link">スタッフ一覧</a>
-                <a href="/admin/stamp_correction_request/list" class="admin-staff-attendance-header__link">申請一覧</a>
-
-                <form method="POST" action="{{ route('logout') }}" class="admin-staff-attendance-header__logout-form">
-                    @csrf
-                    <button type="submit" class="admin-staff-attendance-header__logout">ログアウト</button>
-                </form>
-            </nav>
-        </div>
-    </header>
+    @include('components.admin-header')
 
     <main class="admin-staff-attendance-main">
         <section class="admin-staff-attendance-content">
