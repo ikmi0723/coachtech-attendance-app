@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+<link rel="stylesheet" href="{{ asset('css/common-header.css') }}">
 
 <head>
     <meta charset="UTF-8">
@@ -10,25 +11,8 @@
 </head>
 
 <body>
-    {{-- ヘッダー --}}
-    <header class="attendance-header">
-        <div class="attendance-header__inner">
-            <img src="{{ asset('img/logo.png') }}" alt="COACHTECH" class="attendance-header__logo">
+    @include('components.user-header')
 
-            <nav class="attendance-header__nav">
-                <a href="/attendance" class="attendance-header__link">勤怠</a>
-                <a href="/attendance/list" class="attendance-header__link">勤怠一覧</a>
-                <a href="/stamp_correction_request/list" class="attendance-header__link">申請</a>
-
-                <form method="POST" action="{{ route('logout') }}" class="attendance-header__logout-form">
-                    @csrf
-                    <button type="submit" class="attendance-header__logout">ログアウト</button>
-                </form>
-            </nav>
-        </div>
-    </header>
-
-    {{-- メインコンテンツ --}}
     <main class="attendance-main">
         <div class="attendance-card">
             <p class="attendance-card__status">{{ $statusLabel }}</p>

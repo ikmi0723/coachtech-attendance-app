@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
 {
@@ -21,24 +22,27 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => '山田 太郎',
+            'name' => '西 玲奈',
             'email' => 'user1@example.com',
-            'password' => Hash::make('password123'),
             'role' => 'user',
+            'email_verified_at' => Carbon::now(), 
+            'password' => Hash::make('password123'),
         ]);
 
         User::create([
-            'name' => '佐藤 花子',
+            'name' => '山田 太郎',
             'email' => 'user2@example.com',
-            'password' => Hash::make('password123'),
             'role' => 'user',
+            'email_verified_at' => Carbon::now(), 
+            'password' => Hash::make('password123'),
         ]);
 
         User::create([
-            'name' => '鈴木 一郎',
+            'name' => '増田 一世',
             'email' => 'user3@example.com',
-            'password' => Hash::make('password123'),
             'role' => 'user',
+            'email_verified_at' => Carbon::now(), 
+            'password' => Hash::make('password123'),
         ]);
     }
 }
